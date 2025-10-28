@@ -15,18 +15,17 @@ output: head-->1-->2-->3-->null
 
 Please complete the following program to fullfil the function.\
 */
-public class homework20_1
-{
-   public static void main(String[] args)
-   {
+import java.util.Scanner;
+
+public class homework20_1 {
+   public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
       LinkedList llist = new LinkedList();
 
       System.out.println("Enter 5 sorted numbers:");
       // Read 5 numbers and add them to the linked list
       ListNode prev = null;
-      for (int i = 0; i < 5; i++)
-      {
+      for (int i = 0; i < 5; i++) {
          int num = sc.nextInt();
          ListNode newNode = new ListNode(num);
          if (llist.head == null)
@@ -43,49 +42,43 @@ public class homework20_1
 
       System.out.println("After removing duplicates:");
       System.out.println(llist);
+
+      sc.close();
    }
-   
-   }
-   public static void deleteDuplicates(LinkedList llist)
-   {
+
+   // Function to remove duplicates from sorted linked list
+   public static void deleteDuplicates(LinkedList llist) {
       if (llist.head == null) return;
 
       ListNode current = llist.head;
-      while (current != null && current.next != null)
-      {
-         if (current.value == current.next.value)
-         {
-            // Skip the duplicate node
+      while (current != null && current.next != null) {
+         if (current.value == current.next.value) {
+            // Skip duplicate node
             current.next = current.next.next;
-         }
-         else
-         {
+         } else {
             current = current.next;
          }
       }
    }
-
 }
 
-class ListNode
-{
+// Node class
+class ListNode {
    int value;
    ListNode next;
-   ListNode(int v){value = v;}
+   ListNode(int v) { value = v; }
 }
 
-class LinkedList
-{
+// Linked list class
+class LinkedList {
    ListNode head;
-   public String toString()
-   {
-      String nodeData = "";
+   public String toString() {
+      StringBuilder nodeData = new StringBuilder();
       ListNode ref = head;
-      while(ref != null)
-      {
-         nodeData += ref.value + "-->";
+      while (ref != null) {
+         nodeData.append(ref.value).append("-->");
          ref = ref.next;
       }
-      return "head-->"+nodeData+"null";
+      return "head-->" + nodeData + "null";
    }
 }
