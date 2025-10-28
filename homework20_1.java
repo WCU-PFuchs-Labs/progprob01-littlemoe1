@@ -13,7 +13,7 @@ Example 2:
 input: 1,1,1,2,3
 output: head-->1-->2-->3-->null
 
-Please complete the following program to fullfil the function.
+Please complete the following program to fullfil the function.\
 */
 public class homework20_1
 {
